@@ -4,471 +4,376 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description" content="GenSports: ropa, calzado y accesorios deportivos a precios especiales.">
+    <meta name="description" content="GenSports: ropa, calzado y accesorios deportivos de grandes marcas a precios especiales.">
+    <meta name="theme-color" content="#0A0F1C">
 
     <title>GenSports | Tienda deportiva</title>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="./img/logo/gensports-logo.png">
 
-    <!-- Bootstrap Icons -->
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,700;1,800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap e iconos -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <!-- CSS del proyecto -->
+    <!-- Estilos del proyecto -->
     <link rel="stylesheet" href="./css/styles.css">
-    <link rel="stylesheet" href="./css/oferta-hero.css"
-
 </head>
 
 <body>
 
     <!-- =================================================
-         ALERTA INICIAL DEL SORTEO
+         MODAL DEL SORTEO
     ================================================== -->
-
     <div class="modal fade" id="modalSorteo" tabindex="-1" aria-labelledby="tituloModalSorteo" aria-hidden="true"
         data-bs-backdrop="static" data-bs-keyboard="false">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content modal-sorteo">
-
                 <div class="modal-body p-0">
                     <div class="row g-0">
 
-                        <div class="col-md-5 imagen-sorteo">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTAgJWhMyE1p97hyk-1_8ET93EJhyke4lu-X84G_8IOA&s=10"
-                                alt="Jugador de fútbol americano en el campo">
+                        <div class="col-md-5 sorteo-imagen">
+                            <img src="./img/sorteo.jpg" alt="Jugador de fútbol americano en el campo">
                         </div>
 
-                        <div class="col-md-7 contenido-sorteo">
+                        <div class="col-md-7 sorteo-contenido">
+                            <button type="button" class="btn-close btn-close-white sorteo-cerrar"
+                                aria-label="Cerrar" data-bs-dismiss="modal"></button>
 
-                            <button type="button" class="btn-close btn-close-white boton-cerrar-superior"
-                                id="cerrarSorteoSuperior" aria-label="Cerrar alerta del sorteo"
-                                data-bs-dismiss="modal"></button>
+                            <img class="sorteo-logo" src="./img/logo/gensports-logo.png" alt="GenSports">
 
-                            <div class="logo-modal">
-                                <img src="./img/logo/gensports-logo.png" alt="GenSports">
-                            </div>
+                            <span class="etiqueta">Oportunidad especial</span>
 
-                            <span class="etiqueta-sorteo">
-                                OPORTUNIDAD ESPECIAL
-                            </span>
+                            <h2 id="tituloModalSorteo">¡Gana boletos para la NFL en CDMX!</h2>
 
-                            <h1 id="tituloModalSorteo">
-                                ¡Gana boletos para la NFL en CDMX!
-                            </h1>
-
-                            <p class="texto-sorteo">
-                                Participa en nuestro sorteo y vive el emocionante
-                                partido entre los San Francisco 49ers y los
-                                Minnesota Vikings.
+                            <p class="sorteo-texto">
+                                Participa en nuestro sorteo y vive el partido entre los
+                                San Francisco 49ers y los Minnesota Vikings.
                             </p>
 
-                            <div class="datos-partido">
-                                <p>
-                                    <strong>Fecha:</strong>
-                                    22 de noviembre de 2026
-                                </p>
-
-                                <p>
-                                    <strong>Lugar:</strong>
-                                    Estadio Banorte, CDMX
-                                </p>
+                            <div class="sorteo-datos">
+                                <p><i class="bi bi-calendar-event" aria-hidden="true"></i> 22 de noviembre de 2026</p>
+                                <p><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> Estadio Banorte, CDMX</p>
                             </div>
 
-                            <p class="aviso-sorteo">
-                                Regístrate con tu correo electrónico para participar.
-                            </p>
+                            <p class="sorteo-aviso">Regístrate con tu correo electrónico para participar.</p>
 
-                            <div class="botones-sorteo">
-                                <button type="button" class="btn btn-warning btn-participar" id="btnParticipar">
+                            <div class="sorteo-botones">
+                                <button type="button" class="boton boton-lima" id="btnParticipar">
                                     Participar ahora
                                 </button>
+                                <button type="button" class="boton-texto" data-bs-dismiss="modal">
+                                    Ahora no
+                                </button>
                             </div>
-
                         </div>
+
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
 
 
     <!-- =================================================
-         HEADER Y NAVEGACIÓN
+         HEADER
     ================================================== -->
-
-    <header id="inicio" class="site-header">
-        <nav class="site-nav" aria-label="Navegación principal">
-            <a href="#inicio" class="logo-header" aria-label="Ir al inicio de GenSports">
+    <header id="inicio" class="header">
+        <nav class="nav" aria-label="Navegación principal">
+            <a href="#inicio" class="nav-logo" aria-label="Ir al inicio de GenSports">
                 <img src="./img/logo/gensports-logo.png" alt="GenSports">
             </a>
 
-            <ul class="menu-principal">
-                <li>
-                    <a href="#inicio">Inicio</a>
-                </li>
-
-                <li>
-                    <a href="#deportes">Deportes</a>
-                </li>
-
-                <li>
-                    <a href="#productos">Productos</a>
-                </li>
-
-                <li>
-                    <a href="#beneficios">Beneficios</a>
-                </li>
-
-                <li>
-                    <a href="#marcas">Marcas</a>
-                </li>
-
-                <li>
-                    <a href="#suscripcion">Suscripción</a>
-                </li>
+            <ul class="menu" id="menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#deportes">Deportes</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#beneficios">Beneficios</a></li>
+                <li><a href="#marcas">Marcas</a></li>
+                <li><a href="#suscripcion">Sorteo</a></li>
             </ul>
 
-            <button id="carrito" type="button" aria-label="Abrir carrito de compras">
-                <span aria-hidden="true">🛒</span>
-                <span id="contador-carrito">0</span>
-            </button>
+            <div class="nav-acciones">
+                <button type="button" class="boton-carrito" id="botonCarrito" aria-label="Abrir carrito de compras"
+                    aria-expanded="false" aria-controls="panelCarrito">
+                    <i class="bi bi-bag-fill" aria-hidden="true"></i>
+                    <span id="contadorCarrito">0</span>
+                </button>
+
+                <button type="button" class="boton-menu" id="botonMenu" aria-label="Abrir menú" aria-expanded="false"
+                    aria-controls="menu">
+                    <i class="bi bi-list" aria-hidden="true"></i>
+                </button>
+            </div>
         </nav>
 
-        <div id="contenido-carrito" class="oculto" aria-live="polite"></div>
+        <div class="panel-carrito" id="panelCarrito" hidden></div>
     </header>
 
 
     <!-- =================================================
-         OFERTA STICKY
+         OFERTA FLASH
     ================================================== -->
+    <aside class="oferta" id="oferta" aria-label="Oferta flash">
+        <div class="oferta-contenido">
 
-    <aside id="contadorOferta" class="gs-oferta" aria-label="Oferta flash">
-        <div class="gs-oferta-contenido">
-
-            <div class="gs-oferta-texto">
-                <span class="gs-rayo" aria-hidden="true">
-                    ϟ
-                </span>
-
+            <div class="oferta-texto">
+                <i class="bi bi-lightning-charge-fill oferta-rayo" aria-hidden="true"></i>
                 <div>
-                    <span class="gs-oferta-titulo">
-                        OFERTA FLASH
-                    </span>
-
-                    <strong>
-                        30% DE DESCUENTO
-                    </strong>
+                    <span class="oferta-titulo">Oferta flash</span>
+                    <strong>30% de descuento</strong>
                 </div>
             </div>
 
-            <div class="gs-reloj" role="timer" aria-label="Tiempo restante de la oferta">
-                <div>
-                    <span id="horas">01</span>
-                    <small>HRS</small>
-                </div>
-
+            <div class="reloj" role="timer" aria-label="Tiempo restante de la oferta">
+                <div><span id="horas">01</span><small>HRS</small></div>
                 <b aria-hidden="true">:</b>
-
-                <div>
-                    <span id="minutos">30</span>
-                    <small>MIN</small>
-                </div>
-
+                <div><span id="minutos">30</span><small>MIN</small></div>
                 <b aria-hidden="true">:</b>
-
-                <div>
-                    <span id="segundos">00</span>
-                    <small>SEG</small>
-                </div>
+                <div><span id="segundos">00</span><small>SEG</small></div>
             </div>
 
-            <a class="gs-boton gs-aprovechar" href="#productos">
-                Aprovechar
-            </a>
+            <a class="boton boton-lima boton-chico" id="botonOferta" href="#productos">Aprovechar</a>
         </div>
 
-        <div class="gs-efectos" aria-hidden="true"></div>
+        <div class="oferta-efectos" aria-hidden="true"></div>
     </aside>
 
 
-    <!-- =================================================
-         CONTENIDO PRINCIPAL
-    ================================================== -->
-
     <main>
 
-        <!-- HERO -->
-        <section id="hero" class="gs-hero" aria-labelledby="gs-titulo">
-            <div class="gs-presentacion">
+        <!-- =================================================
+             HERO
+        ================================================== -->
+        <section class="hero" aria-labelledby="tituloHero">
+            <div class="hero-contenedor">
 
-                <span class="gs-etiqueta">
-                    EQUÍPATE PARA TU PRÓXIMO RETO
-                </span>
+                <div class="hero-texto">
+                    <span class="etiqueta">Equípate para tu próximo reto</span>
 
-                <h1 id="gs-titulo">
-                    Muévete a <span>tu manera.</span>
-                </h1>
-
-                <p>
-                    Encuentra el equipo que te acompaña en cada partido,
-                    entrenamiento y kilómetro.
-                </p>
-
-                <a class="gs-boton" href="#productos">
-                    Explorar productos →
-                </a>
-            </div>
-
-            <div class="gs-carrusel" role="region" aria-roledescription="carrusel"
-                aria-label="Categorías deportivas destacadas">
-                <article class="gs-slide" role="group" aria-roledescription="diapositiva" aria-label="1 de 5: Fútbol">
-                    <div class="gs-imagen">
-                        <img src="./img/futbol.jpg" alt="Jugador practicando fútbol">
-                    </div>
-
-                    <div class="gs-info">
-                        <span>FÚTBOL</span>
-                        <h2>Domina la cancha</h2>
-                        <p>
-                            Prepárate para darlo todo en cada partido.
-                        </p>
-                    </div>
-                </article>
-
-                <article class="gs-slide" role="group" aria-roledescription="diapositiva"
-                    aria-label="2 de 5: Básquetbol" hidden>
-                    <div class="gs-imagen">
-                        <img src="./img/basquetbol.jpg" alt="Jugador practicando básquetbol" loading="lazy">
-                    </div>
-
-                    <div class="gs-info">
-                        <span>BÁSQUETBOL</span>
-                        <h2>Haz que cada tiro cuente</h2>
-                        <p>
-                            Da tu mejor juego en la cancha.
-                        </p>
-                    </div>
-                </article>
-
-                <article class="gs-slide" role="group" aria-roledescription="diapositiva"
-                    aria-label="3 de 5: Fútbol americano" hidden>
-                    <div class="gs-imagen">
-                        <img src="./img/americano.jpg" alt="Jugador de fútbol americano" loading="lazy">
-                    </div>
-
-                    <div class="gs-info">
-                        <span>FÚTBOL AMERICANO</span>
-                        <h2>Avanza en cada jugada</h2>
-                        <p>
-                            Pasión y energía hasta la última yarda.
-                        </p>
-                    </div>
-                </article>
-
-                <article class="gs-slide" role="group" aria-roledescription="diapositiva" aria-label="4 de 5: Running"
-                    hidden>
-                    <div class="gs-imagen">
-                        <img src="./img/running.jpg" alt="Persona corriendo" loading="lazy">
-                    </div>
-
-                    <div class="gs-info">
-                        <span>RUNNING</span>
-                        <h2>Encuentra tu ritmo</h2>
-                        <p>
-                            Cada kilómetro empieza con un primer paso.
-                        </p>
-                    </div>
-                </article>
-
-                <article class="gs-slide" role="group" aria-roledescription="diapositiva"
-                    aria-label="5 de 5: Calzado deportivo" hidden>
-                    <div class="gs-imagen">
-                        <img src="./img/hero.jpg" alt="Calzado deportivo" loading="lazy">
-                    </div>
-
-                    <div class="gs-info">
-                        <span>CALZADO DEPORTIVO</span>
-                        <h2>Prepárate para tu próximo reto</h2>
-                        <p>
-                            Encuentra el calzado para tus entrenamientos.
-                        </p>
-                    </div>
-                </article>
-
-                <div class="gs-controles">
-                    <button class="gs-flecha" type="button" data-gs-anterior aria-label="Diapositiva anterior">
-                        ←
-                    </button>
-
-                    <div class="gs-indicadores" role="group" aria-label="Elegir categoría">
-                        <button type="button" class="gs-indicador" aria-label="Mostrar Fútbol"
-                            aria-current="true"></button>
-
-                        <button type="button" class="gs-indicador" aria-label="Mostrar Básquetbol"></button>
-
-                        <button type="button" class="gs-indicador" aria-label="Mostrar Fútbol americano"></button>
-
-                        <button type="button" class="gs-indicador" aria-label="Mostrar Running"></button>
-
-                        <button type="button" class="gs-indicador" aria-label="Mostrar Calzado deportivo"></button>
-                    </div>
-
-                    <button class="gs-flecha" type="button" data-gs-siguiente aria-label="Siguiente diapositiva">
-                        →
-                    </button>
-                </div>
-
-                <p class="gs-sr" data-gs-estado aria-live="polite" aria-atomic="true"></p>
-            </div>
-        </section>
-
-
-        <!-- CATEGORÍAS DEPORTIVAS -->
-        <section id="deportes" class="seccion-deportes" aria-labelledby="titulo-deportes">
-            <h2 id="titulo-deportes">
-                Encuentra tu deporte
-            </h2>
-
-            <div id="deportes-container">
-
-                <article class="deporte" data-deporte="Running">
-                    <img src="./img/running.jpg" alt="Persona practicando running" loading="lazy">
-
-                    <h3>Running</h3>
-                    <p>Todo para tus carreras.</p>
-                </article>
-
-                <article class="deporte" data-deporte="Fútbol">
-                    <img src="./img/futbol.jpg" alt="Jugador practicando fútbol" loading="lazy">
-
-                    <h3>Fútbol</h3>
-                    <p>Equípate para la cancha.</p>
-                </article>
-
-                <article class="deporte" data-deporte="Básquetbol">
-                    <img src="./img/basquetbol.jpg" alt="Jugador practicando básquetbol" loading="lazy">
-
-                    <h3>Básquetbol</h3>
-                    <p>Domina la cancha.</p>
-                </article>
-
-                <article class="deporte" data-deporte="Americano">
-                    <img src="./img/americano.jpg" alt="Jugador de fútbol americano" loading="lazy">
-
-                    <h3>Americano</h3>
-                    <p>Prepárate para el juego.</p>
-                </article>
-
-            </div>
-        </section>
-
-
-        <!-- VISTA DETALLADA DEL PRODUCTO -->
-        <div id="vista-producto" class="vista-producto oculto" aria-hidden="true">
-            <button id="cerrar-vista" class="cerrar-vista" type="button" aria-label="Cerrar información del producto">
-                &times;
-            </button>
-
-            <div class="vista-info">
-                <img id="imagen-grande" src="" alt="">
-
-                <h2 id="nombre-grande"></h2>
-                <p id="precio-grande"></p>
-            </div>
-        </div>
-
-
-        <!-- CATÁLOGO DE PRODUCTOS -->
-        <section id="productos" class="seccion-productos" aria-labelledby="titulo-productos">
-            <h2 id="titulo-productos">
-                Productos destacados
-            </h2>
-
-            <div id="productos-container"></div>
-        </section>
-
-
-        <!-- BENEFICIOS -->
-        <section id="beneficios" class="seccion-beneficios" aria-labelledby="titulo-beneficios">
-            <div class="container">
-
-                <div class="text-center encabezado-beneficios">
-                    <span class="etiqueta-beneficios">
-                        COMPRA CON CONFIANZA
-                    </span>
-
-                    <h2 id="titulo-beneficios">
-                        Todo lo que necesitas para comprar mejor
-                    </h2>
+                    <h1 id="tituloHero">Muévete a <span>tu manera.</span></h1>
 
                     <p>
-                        Disfruta una experiencia sencilla, segura y conveniente
-                        en cada compra.
+                        Encuentra el equipo que te acompaña en cada partido,
+                        entrenamiento y kilómetro.
                     </p>
+
+                    <div class="hero-botones">
+                        <a class="boton boton-lima" href="#productos">
+                            Explorar productos <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                        </a>
+                        <a class="boton boton-borde" href="#deportes">Elegir deporte</a>
+                    </div>
+
+                    <ul class="hero-puntos">
+                        <li><i class="bi bi-truck" aria-hidden="true"></i> Envíos rápidos</li>
+                        <li><i class="bi bi-shield-check" aria-hidden="true"></i> Compra segura</li>
+                        <li><i class="bi bi-arrow-repeat" aria-hidden="true"></i> Cambios sencillos</li>
+                    </ul>
+                </div>
+
+                <div class="carrusel" role="region" aria-roledescription="carrusel"
+                    aria-label="Categorías deportivas destacadas">
+
+                    <article class="slide" role="group" aria-roledescription="diapositiva" aria-label="1 de 5: Fútbol">
+                        <img src="./img/futbol.jpg" alt="Jugador practicando fútbol">
+                        <div class="slide-info">
+                            <span>Fútbol</span>
+                            <h2>Domina la cancha</h2>
+                            <p>Prepárate para darlo todo en cada partido.</p>
+                        </div>
+                    </article>
+
+                    <article class="slide" role="group" aria-roledescription="diapositiva"
+                        aria-label="2 de 5: Básquetbol" hidden>
+                        <img src="./img/basquetbol.jpg" alt="Jugador practicando básquetbol" loading="lazy">
+                        <div class="slide-info">
+                            <span>Básquetbol</span>
+                            <h2>Haz que cada tiro cuente</h2>
+                            <p>Da tu mejor juego en la cancha.</p>
+                        </div>
+                    </article>
+
+                    <article class="slide" role="group" aria-roledescription="diapositiva"
+                        aria-label="3 de 5: Fútbol americano" hidden>
+                        <img src="./img/americano.jpg" alt="Jugador de fútbol americano" loading="lazy">
+                        <div class="slide-info">
+                            <span>Fútbol americano</span>
+                            <h2>Avanza en cada jugada</h2>
+                            <p>Pasión y energía hasta la última yarda.</p>
+                        </div>
+                    </article>
+
+                    <article class="slide" role="group" aria-roledescription="diapositiva" aria-label="4 de 5: Running"
+                        hidden>
+                        <img src="./img/running.jpg" alt="Persona corriendo" loading="lazy">
+                        <div class="slide-info">
+                            <span>Running</span>
+                            <h2>Encuentra tu ritmo</h2>
+                            <p>Cada kilómetro empieza con un primer paso.</p>
+                        </div>
+                    </article>
+
+                    <article class="slide" role="group" aria-roledescription="diapositiva"
+                        aria-label="5 de 5: Calzado deportivo" hidden>
+                        <img src="./img/hero.jpg" alt="Calzado deportivo" loading="lazy">
+                        <div class="slide-info">
+                            <span>Calzado deportivo</span>
+                            <h2>Prepárate para tu próximo reto</h2>
+                            <p>Encuentra el calzado para tus entrenamientos.</p>
+                        </div>
+                    </article>
+
+                    <div class="carrusel-controles">
+                        <button class="flecha" type="button" data-anterior aria-label="Diapositiva anterior">
+                            <i class="bi bi-arrow-left" aria-hidden="true"></i>
+                        </button>
+
+                        <div class="indicadores" role="group" aria-label="Elegir categoría">
+                            <button type="button" class="indicador" aria-label="Mostrar Fútbol"
+                                aria-current="true"></button>
+                            <button type="button" class="indicador" aria-label="Mostrar Básquetbol"></button>
+                            <button type="button" class="indicador" aria-label="Mostrar Fútbol americano"></button>
+                            <button type="button" class="indicador" aria-label="Mostrar Running"></button>
+                            <button type="button" class="indicador" aria-label="Mostrar Calzado deportivo"></button>
+                        </div>
+
+                        <button class="flecha" type="button" data-siguiente aria-label="Siguiente diapositiva">
+                            <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                        </button>
+                    </div>
+
+                    <p class="solo-lectores" data-estado aria-live="polite" aria-atomic="true"></p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =================================================
+             DEPORTES
+        ================================================== -->
+        <section id="deportes" class="seccion seccion-deportes" aria-labelledby="tituloDeportes">
+            <div class="contenedor">
+
+                <div class="encabezado">
+                    <span class="etiqueta etiqueta-azul">Categorías</span>
+                    <h2 id="tituloDeportes">Encuentra tu deporte</h2>
+                    <p>Elige tu disciplina y descubre todo lo que necesitas para practicarla.</p>
+                </div>
+
+                <div class="deportes-lista">
+
+                    <button type="button" class="deporte" data-deporte="Running">
+                        <img src="./img/running.jpg" alt="" loading="lazy">
+                        <span class="deporte-texto">
+                            <strong>Running</strong>
+                            <small>Todo para tus carreras</small>
+                        </span>
+                    </button>
+
+                    <button type="button" class="deporte" data-deporte="Fútbol">
+                        <img src="./img/futbol.jpg" alt="" loading="lazy">
+                        <span class="deporte-texto">
+                            <strong>Fútbol</strong>
+                            <small>Equípate para la cancha</small>
+                        </span>
+                    </button>
+
+                    <button type="button" class="deporte" data-deporte="Básquetbol">
+                        <img src="./img/basquetbol.jpg" alt="" loading="lazy">
+                        <span class="deporte-texto">
+                            <strong>Básquetbol</strong>
+                            <small>Domina la cancha</small>
+                        </span>
+                    </button>
+
+                    <button type="button" class="deporte" data-deporte="Americano">
+                        <img src="./img/americano.jpg" alt="" loading="lazy">
+                        <span class="deporte-texto">
+                            <strong>Americano</strong>
+                            <small>Prepárate para el juego</small>
+                        </span>
+                    </button>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =================================================
+             PRODUCTOS
+        ================================================== -->
+        <section id="productos" class="seccion seccion-productos" aria-labelledby="tituloProductos">
+            <div class="contenedor">
+
+                <div class="encabezado">
+                    <span class="etiqueta etiqueta-azul">Catálogo</span>
+                    <h2 id="tituloProductos">Productos destacados</h2>
+                    <p>Ropa, calzado y accesorios para cada disciplina.</p>
+                </div>
+
+                <div class="filtros" id="filtros" role="group" aria-label="Filtrar productos por deporte">
+                    <button type="button" class="filtro activo" data-filtro="Todos" aria-pressed="true">Todos</button>
+                    <button type="button" class="filtro" data-filtro="Running" aria-pressed="false">Running</button>
+                    <button type="button" class="filtro" data-filtro="Fútbol" aria-pressed="false">Fútbol</button>
+                    <button type="button" class="filtro" data-filtro="Básquetbol" aria-pressed="false">Básquetbol</button>
+                    <button type="button" class="filtro" data-filtro="Americano" aria-pressed="false">Americano</button>
+                </div>
+
+                <div class="productos-lista" id="productosLista" aria-live="polite"></div>
+
+            </div>
+        </section>
+
+
+        <!-- =================================================
+             BENEFICIOS
+        ================================================== -->
+        <section id="beneficios" class="seccion seccion-beneficios" aria-labelledby="tituloBeneficios">
+            <div class="contenedor">
+
+                <div class="encabezado">
+                    <span class="etiqueta etiqueta-azul">Compra con confianza</span>
+                    <h2 id="tituloBeneficios">Todo lo que necesitas para comprar mejor</h2>
+                    <p>Disfruta una experiencia sencilla, segura y conveniente en cada compra.</p>
                 </div>
 
                 <div class="row g-4">
 
                     <div class="col-12 col-sm-6 col-lg-3">
-                        <article class="tarjeta-beneficio">
-                            <div class="icono-beneficio">
-                                <i class="bi bi-truck" aria-hidden="true"></i>
-                            </div>
-
+                        <article class="beneficio">
+                            <div class="beneficio-icono"><i class="bi bi-truck" aria-hidden="true"></i></div>
                             <h3>Envíos rápidos</h3>
-
-                            <p>
-                                Recibe tus productos en poco tiempo y prepárate
-                                para alcanzar tus objetivos.
-                            </p>
+                            <p>Recibe tus productos en poco tiempo y prepárate para alcanzar tus objetivos.</p>
                         </article>
                     </div>
 
                     <div class="col-12 col-sm-6 col-lg-3">
-                        <article class="tarjeta-beneficio">
-                            <div class="icono-beneficio">
-                                <i class="bi bi-tag-fill" aria-hidden="true"></i>
-                            </div>
-
+                        <article class="beneficio">
+                            <div class="beneficio-icono"><i class="bi bi-tag-fill" aria-hidden="true"></i></div>
                             <h3>Descuentos reales</h3>
-
-                            <p>
-                                Encuentra productos de grandes marcas a precios
-                                especiales de outlet.
-                            </p>
+                            <p>Encuentra productos de grandes marcas a precios especiales de outlet.</p>
                         </article>
                     </div>
 
                     <div class="col-12 col-sm-6 col-lg-3">
-                        <article class="tarjeta-beneficio">
-                            <div class="icono-beneficio">
-                                <i class="bi bi-shield-check" aria-hidden="true"></i>
-                            </div>
-
+                        <article class="beneficio">
+                            <div class="beneficio-icono"><i class="bi bi-shield-check" aria-hidden="true"></i></div>
                             <h3>Compra segura</h3>
-
-                            <p>
-                                Protegemos tus datos para que puedas comprar
-                                con tranquilidad.
-                            </p>
+                            <p>Protegemos tus datos para que puedas comprar con tranquilidad.</p>
                         </article>
                     </div>
 
                     <div class="col-12 col-sm-6 col-lg-3">
-                        <article class="tarjeta-beneficio">
-                            <div class="icono-beneficio">
-                                <i class="bi bi-arrow-repeat" aria-hidden="true"></i>
-                            </div>
-
+                        <article class="beneficio">
+                            <div class="beneficio-icono"><i class="bi bi-arrow-repeat" aria-hidden="true"></i></div>
                             <h3>Cambios sencillos</h3>
-
-                            <p>
-                                Consulta nuestras opciones de cambio y devolución
-                                de manera clara y sencilla.
-                            </p>
+                            <p>Consulta nuestras opciones de cambio y devolución de manera clara y sencilla.</p>
                         </article>
                     </div>
 
@@ -477,139 +382,73 @@
         </section>
 
 
-        <!-- MARCAS PARTICIPANTES -->
-        <section id="marcas" class="seccion-marcas" aria-labelledby="titulo-marcas">
-            <div class="container">
+        <!-- =================================================
+             MARCAS
+        ================================================== -->
+        <section id="marcas" class="seccion seccion-marcas" aria-labelledby="tituloMarcas">
+            <div class="contenedor">
+                <div class="encabezado">
+                    <span class="etiqueta etiqueta-azul">Marcas participantes</span>
+                    <h2 id="tituloMarcas">Las mejores marcas deportivas</h2>
+                    <p>Encuentra productos de tus marcas favoritas a precios especiales de outlet.</p>
+                </div>
+            </div>
 
-                <div class="text-center encabezado-marcas">
-                    <span class="etiqueta-marcas">
-                        MARCAS PARTICIPANTES
-                    </span>
+            <div class="marcas-carrusel" aria-label="Marcas participantes">
+                <div class="marcas-pista" id="marcasPista">
+                    <div class="marca"><img src="./img/marcas/nike.png" alt="Nike" loading="lazy"></div>
+                    <div class="marca"><img src="./img/marcas/adidas.png" alt="Adidas" loading="lazy"></div>
+                    <div class="marca"><img src="./img/marcas/puma.png" alt="Puma" loading="lazy"></div>
+                    <div class="marca"><img src="./img/marcas/under-armour.png" alt="Under Armour" loading="lazy"></div>
+                    <div class="marca"><img src="./img/marcas/reebok.png" alt="Reebok" loading="lazy"></div>
+                    <div class="marca"><img src="./img/marcas/new-balance.png" alt="New Balance" loading="lazy"></div>
+                </div>
+            </div>
+        </section>
 
-                    <h2 id="titulo-marcas">
-                        Las mejores marcas deportivas
-                    </h2>
+
+        <!-- =================================================
+             SUSCRIPCIÓN
+        ================================================== -->
+        <section id="suscripcion" class="seccion seccion-suscripcion" aria-labelledby="tituloSuscripcion">
+            <div class="contenedor">
+                <div class="suscripcion-caja">
+
+                    <img class="suscripcion-logo" src="./img/logo/gensports-logo.png" alt="GenSports">
+
+                    <span class="etiqueta">Participa en el sorteo</span>
+
+                    <h2 id="tituloSuscripcion">Regístrate para tener la oportunidad de ganar</h2>
 
                     <p>
-                        Encuentra productos de tus marcas favoritas a precios
-                        especiales de outlet.
+                        Déjanos tu correo electrónico y recibe información sobre el
+                        sorteo y futuras promociones de GenSports.
                     </p>
-                </div>
 
-                <div class="carrusel-marcas" aria-label="Marcas participantes">
-                    <div class="pista-marcas">
+                    <form id="formularioSuscripcion" class="formulario">
+                        <div class="row g-2 justify-content-center">
 
-                        <div class="marca-item">
-                            <img src="./img/marcas/nike.png" alt="Nike" loading="lazy">
-                        </div>
-
-                        <div class="marca-item">
-                            <img src="./img/marcas/adidas.png" alt="Adidas" loading="lazy">
-                        </div>
-
-                        <div class="marca-item">
-                            <img src="./img/marcas/puma.png" alt="Puma" loading="lazy">
-                        </div>
-
-                        <div class="marca-item">
-                            <img src="./img/marcas/under-armour.png" alt="Under Armour" loading="lazy">
-                        </div>
-
-                        <div class="marca-item">
-                            <img src="./img/marcas/reebok.png" alt="Reebok" loading="lazy">
-                        </div>
-
-                        <div class="marca-item">
-                            <img src="./img/marcas/new-balance.png" alt="New Balance" loading="lazy">
-                        </div>
-
-                        <div class="marca-item" aria-hidden="true">
-                            <img src="./img/marcas/nike.png" alt="" loading="lazy">
-                        </div>
-
-                        <div class="marca-item" aria-hidden="true">
-                            <img src="./img/marcas/adidas.png" alt="" loading="lazy">
-                        </div>
-
-                        <div class="marca-item" aria-hidden="true">
-                            <img src="./img/marcas/puma.png" alt="" loading="lazy">
-                        </div>
-
-                        <div class="marca-item" aria-hidden="true">
-                            <img src="./img/marcas/under-armour.png" alt="" loading="lazy">
-                        </div>
-
-                        <div class="marca-item" aria-hidden="true">
-                            <img src="./img/marcas/reebok.png" alt="" loading="lazy">
-                        </div>
-
-                        <div class="marca-item" aria-hidden="true">
-                            <img src="./img/marcas/new-balance.png" alt="" loading="lazy">
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- SUSCRIPCIÓN -->
-        <section id="suscripcion" class="seccion-suscripcion" aria-labelledby="titulo-suscripcion">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 text-center">
-
-                        <div class="logo-suscripcion">
-                            <img src="./img/logo/gensports-logo.png" alt="GenSports">
-                        </div>
-
-                        <span class="etiqueta-suscripcion">
-                            PARTICIPA EN EL SORTEO
-                        </span>
-
-                        <h2 id="titulo-suscripcion">
-                            Regístrate para tener la oportunidad de ganar
-                        </h2>
-
-                        <p>
-                            Déjanos tu correo electrónico y recibe información
-                            sobre el sorteo y futuras promociones de GenSports.
-                        </p>
-
-                        <form id="formularioSuscripcion" class="formulario-suscripcion">
-                            <div class="row g-2 justify-content-center">
-
-                                <div class="col-md-5">
-                                    <label for="nombre" class="visually-hidden">
-                                        Nombre
-                                    </label>
-
-                                    <input type="text" id="nombre" name="nombre" class="form-control"
-                                        placeholder="Tu nombre" required>
-                                </div>
-
-                                <div class="col-md-5">
-                                    <label for="correo" class="visually-hidden">
-                                        Correo electrónico
-                                    </label>
-
-                                    <input type="email" id="correo" name="correo" class="form-control"
-                                        placeholder="Tu correo electrónico" required>
-                                </div>
-
-                                <div class="col-md-2 d-grid">
-                                    <button type="submit" class="btn btn-warning">
-                                        Suscribirme
-                                    </button>
-                                </div>
-
+                            <div class="col-md-4">
+                                <label for="nombre" class="visually-hidden">Nombre</label>
+                                <input type="text" id="nombre" name="nombre" class="form-control"
+                                    placeholder="Tu nombre" autocomplete="name" required>
                             </div>
 
-                            <div id="mensajeSuscripcion" class="mensaje-suscripcion mt-3" role="alert"
-                                aria-live="polite"></div>
-                        </form>
+                            <div class="col-md-5">
+                                <label for="correo" class="visually-hidden">Correo electrónico</label>
+                                <input type="email" id="correo" name="correo" class="form-control"
+                                    placeholder="Tu correo electrónico" autocomplete="email" required>
+                            </div>
 
-                    </div>
+                            <div class="col-md-3 d-grid">
+                                <button type="submit" class="boton boton-lima">Suscribirme</button>
+                            </div>
+
+                        </div>
+
+                        <p id="mensajeSuscripcion" class="formulario-mensaje" role="status" aria-live="polite"></p>
+                    </form>
+
                 </div>
             </div>
         </section>
@@ -620,134 +459,65 @@
     <!-- =================================================
          FOOTER
     ================================================== -->
-
-    <footer id="footer" class="footer-sport">
-        <div class="container">
+    <footer class="footer">
+        <div class="contenedor">
 
             <div class="row g-5">
 
                 <div class="col-12 col-md-6 col-lg-4">
-                    <a href="#inicio" class="footer-logo-imagen" aria-label="Volver al inicio de GenSports">
+                    <a href="#inicio" class="footer-logo" aria-label="Volver al inicio de GenSports">
                         <img src="./img/logo/gensports-logo.png" alt="GenSports">
                     </a>
 
                     <p class="footer-descripcion">
-                        Equípate para superar tus límites. Encuentra ropa,
-                        calzado y accesorios deportivos de grandes marcas
-                        a precios especiales.
+                        Equípate para superar tus límites. Encuentra ropa, calzado y accesorios
+                        deportivos de grandes marcas a precios especiales.
                     </p>
 
                     <div class="footer-redes">
                         <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"
-                            aria-label="Facebook">
-                            <i class="bi bi-facebook" aria-hidden="true"></i>
-                        </a>
-
+                            aria-label="Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>
                         <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
-                            aria-label="Instagram">
-                            <i class="bi bi-instagram" aria-hidden="true"></i>
-                        </a>
-
-                        <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-                            <i class="bi bi-tiktok" aria-hidden="true"></i>
-                        </a>
-
+                            aria-label="Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+                        <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer"
+                            aria-label="TikTok"><i class="bi bi-tiktok" aria-hidden="true"></i></a>
                         <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer"
-                            aria-label="YouTube">
-                            <i class="bi bi-youtube" aria-hidden="true"></i>
-                        </a>
+                            aria-label="YouTube"><i class="bi bi-youtube" aria-hidden="true"></i></a>
                     </div>
                 </div>
 
                 <div class="col-6 col-md-3 col-lg-2">
-                    <h3 class="footer-titulo">
-                        Atención
-                    </h3>
-
+                    <h3 class="footer-titulo">Atención</h3>
                     <ul class="footer-lista">
-                        <li>
-                            <a href="#suscripcion">
-                                Contáctanos
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#beneficios">
-                                Envíos
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#beneficios">
-                                Cambios y devoluciones
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#beneficios">
-                                Preguntas frecuentes
-                            </a>
-                        </li>
+                        <li><a href="#suscripcion">Contáctanos</a></li>
+                        <li><a href="#beneficios">Envíos</a></li>
+                        <li><a href="#beneficios">Cambios y devoluciones</a></li>
+                        <li><a href="#beneficios">Preguntas frecuentes</a></li>
                     </ul>
                 </div>
 
                 <div class="col-6 col-md-3 col-lg-2">
-                    <h3 class="footer-titulo">
-                        Tienda
-                    </h3>
-
+                    <h3 class="footer-titulo">Tienda</h3>
                     <ul class="footer-lista">
-                        <li>
-                            <a href="#productos">
-                                Catálogo
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#marcas">
-                                Marcas
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#contadorOferta">
-                                Ofertas
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#suscripcion">
-                                Promociones
-                            </a>
-                        </li>
+                        <li><a href="#productos">Catálogo</a></li>
+                        <li><a href="#marcas">Marcas</a></li>
+                        <li><a href="#oferta">Ofertas</a></li>
+                        <li><a href="#suscripcion">Promociones</a></li>
                     </ul>
                 </div>
 
                 <div class="col-12 col-lg-4">
-                    <h3 class="footer-titulo">
-                        Compra segura
-                    </h3>
+                    <h3 class="footer-titulo">Compra segura</h3>
 
                     <p class="footer-texto">
-                        Aceptamos diferentes métodos de pago para que puedas
-                        comprar de forma cómoda y segura.
+                        Aceptamos diferentes métodos de pago para que puedas comprar
+                        de forma cómoda y segura.
                     </p>
 
-                    <div class="metodos-pago">
-                        <span title="Visa">
-                            <i class="bi bi-credit-card-2-front" aria-hidden="true"></i>
-                            Visa
-                        </span>
-
-                        <span title="Mastercard">
-                            <i class="bi bi-credit-card" aria-hidden="true"></i>
-                            Mastercard
-                        </span>
-
-                        <span title="Pago seguro">
-                            <i class="bi bi-shield-check" aria-hidden="true"></i>
-                            Compra segura
-                        </span>
+                    <div class="pagos">
+                        <span><i class="bi bi-credit-card-2-front" aria-hidden="true"></i> Visa</span>
+                        <span><i class="bi bi-credit-card" aria-hidden="true"></i> Mastercard</span>
+                        <span><i class="bi bi-shield-check" aria-hidden="true"></i> Pago seguro</span>
                     </div>
                 </div>
 
@@ -756,25 +526,16 @@
             <hr class="footer-linea">
 
             <div class="row align-items-center gy-3">
-
                 <div class="col-12 col-md-6">
-                    <p class="footer-copyright">
-                        © 2026 GenSports. Todos los derechos reservados.
-                    </p>
+                    <p class="footer-copyright">© 2026 GenSports. Todos los derechos reservados.</p>
                 </div>
 
                 <div class="col-12 col-md-6">
                     <div class="footer-legal">
-                        <a href="#privacidad">
-                            Aviso de privacidad
-                        </a>
-
-                        <a href="#terminos">
-                            Términos y condiciones
-                        </a>
+                        <a href="#inicio">Aviso de privacidad</a>
+                        <a href="#inicio">Términos y condiciones</a>
                     </div>
                 </div>
-
             </div>
 
         </div>
@@ -782,16 +543,36 @@
 
 
     <!-- =================================================
+         DETALLE DEL PRODUCTO
+    ================================================== -->
+    <dialog class="detalle" id="detalleProducto" aria-labelledby="detalleNombre">
+        <div class="detalle-caja">
+            <button type="button" class="detalle-cerrar" id="detalleCerrar" aria-label="Cerrar detalle del producto">
+                <i class="bi bi-x-lg" aria-hidden="true"></i>
+            </button>
+
+            <div class="detalle-imagen">
+                <img id="detalleImagen" src="" alt="">
+            </div>
+
+            <div class="detalle-info">
+                <span class="etiqueta etiqueta-azul" id="detalleDeporte"></span>
+                <h2 id="detalleNombre"></h2>
+                <p class="detalle-precio" id="detallePrecio"></p>
+                <p class="detalle-texto">Producto deportivo de alta calidad para tus entrenamientos y partidos.</p>
+                <button type="button" class="boton boton-azul" id="detalleAgregar">
+                    <i class="bi bi-bag-plus" aria-hidden="true"></i> Agregar al carrito
+                </button>
+            </div>
+        </div>
+    </dialog>
+
+
+    <!-- =================================================
          SCRIPTS
     ================================================== -->
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-    </script>
-
-    <!-- JavaScript del proyecto -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./js/main.js"></script>
-    <script src="./js/oferta-hero.js"></script>
 
 </body>
 
